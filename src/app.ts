@@ -1,1 +1,3 @@
-console.log('testing')
+import Sender from './sender'
+
+const sender = new Sender()
