@@ -21,7 +21,7 @@ class Sender {
         }
         const start = async (client: Whatsapp) => {
             this.client = client
-            await this.sendText("553188382148@c.us", "Olá, tudo bem?")
+            // await this.sendText("553188382148@c.us", "Olá, tudo bem?")
         }
 
 
