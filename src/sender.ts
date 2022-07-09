@@ -29,9 +29,12 @@ class Sender {
             throw new Error('this number is not valid')
         }
         let phoneNumber = parsePhoneNumber(to, "BR")?.format("E.164").replace("+", "") as string
-        console.log("phoneNumber beforee checking", phoneNumber)
+        console.log("phoneNumber checking 111", phoneNumber, phoneNumber[4], phoneNumber.length)
+        if (phoneNumber[4] === '9' && phoneNumber.length === 13) {
+            phoneNumber = phoneNumber.slice(0, 4) + phoneNumber.slice(5, phoneNumber.length)
+        }
         phoneNumber = phoneNumber?.includes("@c.us") ? phoneNumber : `${phoneNumber}@c.us`
-        console.log("phoneNumber", phoneNumber)
+        console.log("phoneNumber 222", phoneNumber)
         await this.client.sendText(phoneNumber, body)
     }
 
