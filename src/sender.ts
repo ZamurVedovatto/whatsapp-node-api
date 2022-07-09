@@ -29,7 +29,7 @@ class Sender {
             throw new Error('this number is not valid')
         }
         let phoneNumber = parsePhoneNumber(to, "BR")?.format("E.164").replace("+", "") as string
-        console.log("phoneNumber befoe checking", phoneNumber)
+        console.log("phoneNumber beforee checking", phoneNumber)
         phoneNumber = phoneNumber?.includes("@c.us") ? phoneNumber : `${phoneNumber}@c.us`
         console.log("phoneNumber", phoneNumber)
         await this.client.sendText(phoneNumber, body)
