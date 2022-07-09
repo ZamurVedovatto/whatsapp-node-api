@@ -13,8 +13,13 @@ app.get('/status', (req: Request, res: Response) => {
 })
 
 app.post("/send", async(req: Request, res: Response) => {
+    // "553188382148@c.us"
+    const { number, message } = req.body
+    console.log("(number, message)", number, message)
     try {
-        await sender.sendText("553188382148@c.us", "Opa")
+        // number validation and transformation
+        
+        await sender.sendText(number, message)
         return res.status(200).json()
     } catch (error) {
         console.error("error", error)
